@@ -1,0 +1,1 @@
+var MyBundle=function(o){"use strict";class n{constructor(){console.log("Foo")}}function c(){console.log("hello world!"),new n}return c(),o.main=c,o.bar=function(){console.log("bar")},o.Main=class{constructor(){console.log("Main")}},o.z=function(){console.log("zzzz")},o}({});

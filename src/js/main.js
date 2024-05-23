@@ -2,7 +2,7 @@ import foo, {Foo} from './foo.js';
 
 export function main() {
     console.log(foo);
-    Foo();
+    new Foo();
 }
 
 export function bar() {
@@ -15,3 +15,9 @@ export class Main {
         console.log('Main');
     }
 }
+
+export function z() {
+    console.log('zzzz');
+}
+
+main();
