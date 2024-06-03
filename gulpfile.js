@@ -19,8 +19,19 @@ const paths = {
   scripts: {
     src: 'src/js/main.js',
     dest: 'docs/'
+  },
+  assets: {
+    src: 'src/assets/**/*',
+    dest: 'docs/assets'
   }
 };
+
+
+// Copia a pasta assets para docs
+function assets() {
+  return gulp.src(paths.assets.src)
+      .pipe(gulp.dest(paths.assets.dest));
+}
 
 // Copia o HTML para docs
 function html() {
@@ -47,13 +58,14 @@ function scripts() {
   })
     .pipe(source('bundle.js', paths.scripts.src))
     .pipe(buffer())
-    .pipe(terser())
+    // .pipe(terser())
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(browserSync.stream());
 }
 
 // Observa mudanças nos arquivos e executa as tarefas correspondentes
 function watchFiles() {
+  gulp.watch(paths.assets.src, assets)
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.scripts.src, scripts);
@@ -71,8 +83,9 @@ function serve() {
 }
 
 const watch = gulp.parallel(watchFiles, serve);
-const build = gulp.series(gulp.parallel(html, styles, scripts), watch);
+const build = gulp.series(gulp.parallel(assets, html, styles, scripts), watch);
 
+exports.assets = assets;
 exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
