@@ -19,6 +19,10 @@ const paths = {
   scripts: {
     src: 'src/js/main.js',
     dest: 'docs/'
+  },
+  assets: {
+    src: 'src/assets/**/*',
+    dest: 'docs/assets/'
   }
 };
 
@@ -35,6 +39,11 @@ function styles() {
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
+}
+
+function assets() {
+  return gulp.src(paths.assets.src)
+    .pipe(gulp.dest(paths.assets.dest));
 }
 
 // Compila o JavaScript com Rollup e copia para docs
@@ -56,6 +65,7 @@ function scripts() {
 function watchFiles() {
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.assets.src, assets);
   gulp.watch(paths.scripts.src, scripts);
 }
 
@@ -71,11 +81,12 @@ function serve() {
 }
 
 const watch = gulp.parallel(watchFiles, serve);
-const build = gulp.series(gulp.parallel(html, styles, scripts), watch);
+const build = gulp.series(gulp.parallel(html, styles, scripts, assets), watch);
 
 exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.assets = assets;
 exports.watch = watch;
 exports.build = build;
 exports.default = build;
