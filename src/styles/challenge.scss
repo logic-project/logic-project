@@ -1,0 +1,127 @@
+
+.challenge {
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #edfdff;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px;
+
+
+    &__title {
+        display: block;
+        font-family: "Sawarabi Mincho", serif;
+        font-weight: normal;
+        font-size: 22px;
+        text-align: center;
+        color: #e8f1ff;
+        padding: 10px;
+        border-bottom: 2px solid #e8f1ff;
+        border-top: 2px solid #e8f1ff;
+        margin: 10px 0 20px 0;
+        background-color: #2c2c2c;
+        text-transform: uppercase;
+    }
+    
+    &__question {
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+        padding: 15px 8px;
+        color: #edfdff;
+    }
+    
+    &__img {
+        width: 100%;
+        height: auto;
+        margin: 5px 0;
+        border-radius: 15px;
+    }
+    
+    &__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__item {
+        margin: 10px 0;
+        display: flex;
+    }
+    
+    &__input {
+        display: none;
+    }
+    
+    &__label {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 15px;
+        background-color: #252525;
+        color: #edfdff;
+        border: 2px solid #8e8e8e;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    
+    &__input:checked + &__label {
+        background-color: #10519c;
+        border-color: #c9edff;
+    }
+
+    &__input:hover + &__label {
+        background-color: #10519c;
+        border-color: #c9edff;
+    }
+    
+    &__button {
+        display: block;
+        width: 100%;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #072f5d;
+        color: #edfdff;
+        border: 2px solid #84bcfc;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    &__button:hover {
+        background-color: #10519c;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .challenge {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .challenge__title {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .challenge__question {
+        font-size: 14px;
+        padding: 10px 5px;
+    }
+
+    .challenge__item {
+        margin: 5px 0;
+    }
+
+    .challenge__label {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}

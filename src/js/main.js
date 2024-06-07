@@ -8,6 +8,8 @@ import { Challenge } from "./Challenge";
 
 const appEl = document.getElementById("app");
 const lifeEl = document.getElementById("life");
+const startBtn = document.getElementById("start");
+const startScreen = document.getElementById("start-screen");
 
 const challengeCallback = (sceneTitle, answer) => {
     console.log(`Scene: ${sceneTitle}`);
@@ -22,17 +24,22 @@ const chapters = [
                 new SubScene(
                     "Hiroshi, um jovem samurai, acorda com um estranho som vindo do jardim do seu dojo.", 
                     "assets/images/cenas/1/1_1.jpeg", 
-                    5
+                    7
                 ),
                 new SubScene(
                     "Ao investigar, ele encontra um espírito guardião chamado Yukimura.", 
                     "assets/images/cenas/1/1_3.jpeg", 
-                    5
+                    6
                 ),
                 new SubScene(
-                    "Yukimura está desesperado e pede a ajuda de Hiroshi para salvar a Princesa Akemi, que foi sequestrada pelo sombrio Senhor das Sombras, Daichi. Hiroshi, inicialmente hesitante, se lembra das histórias dos antigos heróis samurais que salvaram o reino e decide que agora é sua vez de ser o herói.", 
+                    "Yukimura está desesperado e pede a ajuda de Hiroshi para salvar a Princesa Akemi, que foi sequestrada pelo sombrio Senhor das Sombras, Daichi.", 
                     "assets/images/cenas/1/1_8.jpeg", 
-                    16
+                    8
+                ),
+                new SubScene(
+                    "Hiroshi, inicialmente hesitante, se lembra das histórias dos antigos heróis samurais que salvaram o reino e decide que agora é sua vez de ser o herói.", 
+                    "assets/images/cenas/1/1_8.jpeg", 
+                    9
                 ),
             ],
             new Challenge(
@@ -54,20 +61,20 @@ const chapters = [
                     "assets/images/cenas/2/2_1.jpeg", 
                     4
                 ),
-                new SubScene(
-                    "No caminho, eles enfrentam guerreiros das sombras e encontram Hana, uma ágil kunoichi presa em uma armadilha. Eles a libertam e ganham uma nova aliada.", 
-                    "assets/images/cenas/2/2_2.jpeg", 
-                    9
-                ),
-                new SubScene(
-                    "Em seguida, encontram Kenji, um sábio monge, que traz informações valiosas sobre a localização de Akemi.", 
-                    "assets/images/cenas/2/2_6.jpeg", 
-                    7
-                ),
+                // new SubScene(
+                //     "No caminho, eles enfrentam guerreiros das sombras e encontram Hana, uma ágil kunoichi presa em uma armadilha. Eles a libertam e ganham uma nova aliada.", 
+                //     "assets/images/cenas/2/2_2.jpeg", 
+                //     9
+                // ),
+                // new SubScene(
+                //     "Em seguida, encontram Kenji, um sábio monge, que traz informações valiosas sobre a localização de Akemi.", 
+                //     "assets/images/cenas/2/2_6.jpeg", 
+                //     7
+                // ),
             ],
             new Challenge(
                 "Encontrar a saída da floresta",
-                "assets/images/cenas/2_6.jpeg",
+                "assets/images/cenas/2/2_6.jpeg",
                 [
                     "Hiroshi, Yukimura, Hana e Kenji estão perdidos na floresta.",
                     "Eles precisam encontrar a saída para continuar a jornada.",
@@ -295,8 +302,17 @@ const chapters = [
     ]),
 ];
 
-const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
-const game = new GamePlay(story, appEl, lifeEl, "normal");
-game.gameLoop();
+
+startBtn.addEventListener("click", () => {
+    startScreen.style.display = "none";
+    appEl.style.display = "block";
+    lifeEl.style.display = "block";
+
+    const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
+    const game = new GamePlay(story, appEl, lifeEl, "normal");
+    game.gameLoop();
+});
+
+
 
 

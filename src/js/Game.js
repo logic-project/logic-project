@@ -67,7 +67,7 @@ export class GamePlay {
         });
     }
 
-    typeWriter(text, element, speed = 45) {
+    typeWriter(text, element, speed = 40) {
         let i = 0;
         function type() {
             element.innerHTML += text.charAt(i);
@@ -76,6 +76,7 @@ export class GamePlay {
         }
         type();
     }
+
 
     displayChallenge(challenge) {
         return new Promise(resolve => {
