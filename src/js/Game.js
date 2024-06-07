@@ -20,44 +20,39 @@ export class GamePlay {
         }
     }
 
-    // displaySubscene(subscene) {
-    //     return new Promise(resolve => {
-    //         this.appElement.innerHTML = `<img width="500px" src="${subscene.image}" alt="">`;
-    //         const textContainer = document.createElement('div');
-    //         this.appElement.appendChild(textContainer);
-            
-    //         this.typeWriter(subscene.text, textContainer);
-
-    //         const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
-
-    //         setTimeout(() => {
-    //             resolve();
-    //         }, subsceneDuration);
-    //     });
-    // }
 
     displaySubscene(scene, subscene) {
         return new Promise(resolve => {
-            this.appElement.innerHTML = `
-                <div class="subscene">
-                    <h1 class="subscene__title">${scene.title}</h1>
-                    <img class="subscene__img" src="${subscene.image}" alt="">
-                </div>
-            `;
-    
-            const textContainer = document.createElement('div');
-            textContainer.classList.add('subscene__text');
-            this.appElement.querySelector('.subscene').appendChild(textContainer);
+            const subsceneContainer = document.createElement('div');
+            subsceneContainer.classList.add('subscene');
+            subsceneContainer.innerHTML = `<h1 class="subscene__title">${scene.title}</h1>`;
             
-            this.typeWriter(subscene.text, textContainer);
+            const img = new Image();
+            img.classList.add('subscene__img');
+            img.src = subscene.image;
+            img.onload = () => {
+                const textContainer = document.createElement('div');
+                textContainer.classList.add('subscene__text');
+                subsceneContainer.appendChild(img);
+                subsceneContainer.appendChild(textContainer);
+                this.appElement.innerHTML = '';
+                this.appElement.appendChild(subsceneContainer);
+                
+                this.typeWriter(subscene.text, textContainer);
     
-            const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
+                const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
     
-            setTimeout(() => {
-                resolve();
-            }, subsceneDuration);
+                setTimeout(() => {
+                    resolve();
+                }, subsceneDuration);
+            };
+            img.onerror = () => {
+                console.error('Failed to load image:', subscene.image);
+                resolve();  // Resolve the promise even if the image fails to load
+            };
         });
     }
+    
     
 
     displayChallenge(challenge) {
