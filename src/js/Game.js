@@ -12,7 +12,7 @@ export class GamePlay {
         for (const chapter of this.story.chapters) {
             for (const scene of chapter.scenes) {
                 for (const subscene of scene.subscenes) {
-                    await this.displaySubscene(subscene);
+                    await this.displaySubscene(scene, subscene);
                 }
 
                 await this.displayChallenge(scene.challenge);
@@ -20,20 +20,45 @@ export class GamePlay {
         }
     }
 
-    displaySubscene(subscene) {
+    // displaySubscene(subscene) {
+    //     return new Promise(resolve => {
+    //         this.appElement.innerHTML = `<img width="500px" src="${subscene.image}" alt="">`;
+    //         const textContainer = document.createElement('div');
+    //         this.appElement.appendChild(textContainer);
+            
+    //         this.typeWriter(subscene.text, textContainer);
+
+    //         const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
+
+    //         setTimeout(() => {
+    //             resolve();
+    //         }, subsceneDuration);
+    //     });
+    // }
+
+    displaySubscene(scene, subscene) {
         return new Promise(resolve => {
-            this.appElement.innerHTML = `<img width="500px" src="${subscene.image}" alt="">`;
+            this.appElement.innerHTML = `
+                <div class="subscene">
+                    <h1 class="subscene__title">${scene.title}</h1>
+                    <img class="subscene__img" src="${subscene.image}" alt="">
+                </div>
+            `;
+    
             const textContainer = document.createElement('div');
-            this.appElement.appendChild(textContainer);
+            textContainer.classList.add('subscene__text');
+            this.appElement.querySelector('.subscene').appendChild(textContainer);
+            
             this.typeWriter(subscene.text, textContainer);
-
+    
             const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
-
+    
             setTimeout(() => {
                 resolve();
             }, subsceneDuration);
         });
     }
+    
 
     displayChallenge(challenge) {
         return new Promise(resolve => {
@@ -42,7 +67,7 @@ export class GamePlay {
         });
     }
 
-    typeWriter(text, element, speed = 50) {
+    typeWriter(text, element, speed = 45) {
         let i = 0;
         function type() {
             element.innerHTML += text.charAt(i);

@@ -295,10 +295,8 @@ const chapters = [
     ]),
 ];
 
-
-
-// const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
-// const game = new GamePlay(story, appEl, lifeEl, "normal");
-// game.gameLoop();
+const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
+const game = new GamePlay(story, appEl, lifeEl, "normal");
+game.gameLoop();
 
 

@@ -1,10 +1,38 @@
+.subscene {
+  font-family: "Sawarabi Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #1c1c1c;
+  color: #edfdff;
+  position: relative;
+  width: 500px;
+}
+.subscene__title {
+  font-size: 18px;
+  text-align: center;
+  color: #edfdff;
+  padding: 10px;
+  background-color: #272727;
+}
+.subscene__text {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  padding: 15px 8px;
+  background-color: #272727;
+  color: #edfdff;
+}
+.subscene__img {
+  width: 100%;
+  height: auto;
+}
+
 body {
   font-family: "Sawarabi Mincho", serif;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
-  background: #1c1c1c; /* Cor de fundo base */
-  background: linear-gradient(to bottom, #1c1c1c, #0d0d0d); /* Gradiente suave */
+  background: #1c1c1c;
   color: #edfdff;
 }
 body h1 {
