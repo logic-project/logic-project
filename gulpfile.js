@@ -22,7 +22,7 @@ const paths = {
   },
   assets: {
     src: 'src/assets/**/*',
-    dest: 'docs/assets'
+    dest: 'docs/assets/'
   }
 };
 
@@ -48,6 +48,11 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
+function assets() {
+  return gulp.src(paths.assets.src)
+    .pipe(gulp.dest(paths.assets.dest));
+}
+
 // Compila o JavaScript com Rollup e copia para docs
 function scripts() {
   return rollup({
@@ -68,6 +73,7 @@ function watchFiles() {
   gulp.watch(paths.assets.src, assets)
   gulp.watch(paths.html.src, html);
   gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.assets.src, assets);
   gulp.watch(paths.scripts.src, scripts);
 }
 
@@ -83,12 +89,13 @@ function serve() {
 }
 
 const watch = gulp.parallel(watchFiles, serve);
-const build = gulp.series(gulp.parallel(assets, html, styles, scripts), watch);
+const build = gulp.series(gulp.parallel(html, styles, scripts, assets), watch);
 
 exports.assets = assets;
 exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
+exports.assets = assets;
 exports.watch = watch;
 exports.build = build;
 exports.default = build;
