@@ -1,4 +1,5 @@
 @import 'start-screen';
+@import 'score-panel';
 @import 'challenge';
 @import 'subscene';
 
@@ -19,16 +20,6 @@ body {
 
 #app {
     display: none;
-}
-
-#life {
-    display: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
 }
 
 @media (max-width: 600px) {

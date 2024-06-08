@@ -8,6 +8,7 @@ import { Challenge } from "./Challenge";
 
 const appEl = document.getElementById("app");
 const lifeEl = document.getElementById("life");
+const scoreEl = document.getElementById("score");
 const startBtn = document.getElementById("start");
 const startScreen = document.getElementById("start-screen");
 
@@ -61,16 +62,16 @@ const chapters = [
                     "assets/images/cenas/2/2_1.jpeg", 
                     4
                 ),
-                // new SubScene(
-                //     "No caminho, eles enfrentam guerreiros das sombras e encontram Hana, uma ágil kunoichi presa em uma armadilha. Eles a libertam e ganham uma nova aliada.", 
-                //     "assets/images/cenas/2/2_2.jpeg", 
-                //     9
-                // ),
-                // new SubScene(
-                //     "Em seguida, encontram Kenji, um sábio monge, que traz informações valiosas sobre a localização de Akemi.", 
-                //     "assets/images/cenas/2/2_6.jpeg", 
-                //     7
-                // ),
+                new SubScene(
+                    "No caminho, eles enfrentam guerreiros das sombras e encontram Hana, uma ágil kunoichi presa em uma armadilha. Eles a libertam e ganham uma nova aliada.", 
+                    "assets/images/cenas/2/2_2.jpeg", 
+                    9
+                ),
+                new SubScene(
+                    "Em seguida, encontram Kenji, um sábio monge, que traz informações valiosas sobre a localização de Akemi.", 
+                    "assets/images/cenas/2/2_6.jpeg", 
+                    7
+                ),
             ],
             new Challenge(
                 "Encontrar a saída da floresta",
@@ -307,9 +308,10 @@ startBtn.addEventListener("click", () => {
     startScreen.style.display = "none";
     appEl.style.display = "block";
     lifeEl.style.display = "block";
+    scoreEl.style.display = "block";
 
     const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
-    const game = new GamePlay(story, appEl, lifeEl, "normal");
+    const game = new GamePlay(story, appEl, scoreEl, lifeEl, "normal");
     game.gameLoop();
 });
 

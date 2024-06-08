@@ -1,14 +1,17 @@
 export class GamePlay {
-    constructor(story, appElement, lifeElement, mode = 'normal') {
+    constructor(story, appElement, scoreElement, lifeElement, mode = 'normal') {
         this.story = story;
         this.appElement = appElement;
+        this.scoreElement = scoreElement;
         this.lifeElement = lifeElement;
         this.mode = mode;
         this.life = 3;
+        this.score = 0;
     }
 
     async gameLoop() {
         this.updateLifeDisplay();
+        this.updateScoreDisplay();
         for (const chapter of this.story.chapters) {
             for (const scene of chapter.scenes) {
                 for (const subscene of scene.subscenes) {
@@ -88,6 +91,8 @@ export class GamePlay {
                 const answer = selectedOption.value;
                 if (answer == challenge.correctAnswer) {
                     challenge.callback(challenge.question, answer);
+                    this.score++;
+                    this.updateScoreDisplay();
                     resolve();
                 } else {
                     this.life--;
@@ -104,6 +109,10 @@ export class GamePlay {
 
     updateLifeDisplay() {
         this.lifeElement.innerHTML = `Vidas: ${this.life}`;
+    }
+
+    updateScoreDisplay() {
+        this.scoreElement.innerHTML = `Pontos: ${this.score}`;
     }
 
     gameOver() {

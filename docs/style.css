@@ -68,6 +68,43 @@
     opacity: 1;
   }
 }
+.score_panel {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+.score_panel__life {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+.score_panel__score {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .score_panel__life {
+    font-size: 11px;
+  }
+  .score_panel__score {
+    font-size: 11px;
+  }
+}
 .challenge {
   font-family: "Sawarabi Mincho", serif;
   font-weight: 400;
@@ -78,7 +115,7 @@
   max-width: 500px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0px;
 }
 .challenge__title {
   display: block;
@@ -159,7 +196,6 @@
 @media (max-width: 600px) {
   .challenge {
     max-width: 100%;
-    padding: 10px;
   }
   .challenge__title {
     font-size: 16px;
@@ -218,11 +254,9 @@
 @media (max-width: 600px) {
   .subscene {
     max-width: 100%;
-    padding: 10px;
   }
   .subscene__title {
     font-size: 16px;
-    padding: 8px;
   }
   .subscene__text {
     font-size: 14px;
@@ -246,16 +280,6 @@ body {
 
 #app {
   display: none;
-}
-
-#life {
-  display: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
 }
 
 @media (max-width: 600px) {

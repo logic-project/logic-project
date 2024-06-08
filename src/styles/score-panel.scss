@@ -1,0 +1,44 @@
+.score_panel {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin: 10px auto;
+    box-sizing: border-box;
+
+    &__life {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__score {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 600px) {
+  .score_panel {
+    &__life {
+      font-size: 11px;
+    }
+
+    &__score {
+      font-size: 11px;
+    }
+  }
+}
+

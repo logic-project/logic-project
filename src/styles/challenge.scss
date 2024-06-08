@@ -9,7 +9,7 @@
     max-width: 500px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 0px;
 
 
     &__title {
@@ -103,7 +103,6 @@
 @media (max-width: 600px) {
     .challenge {
         max-width: 100%;
-        padding: 10px;
     }
 
     .challenge__title {

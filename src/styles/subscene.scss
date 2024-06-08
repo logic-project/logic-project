@@ -9,7 +9,6 @@
     margin: 0 auto;
     box-sizing: border-box;
     
-    
     &__title {
         display: block;
         font-family: "Sawarabi Mincho", serif;
@@ -44,12 +43,10 @@
 @media (max-width: 600px) {
     .subscene {
         max-width: 100%;
-        padding: 10px;
     }
 
     .subscene__title {
         font-size: 16px;
-        padding: 8px;
     }
 
     .subscene__text {
