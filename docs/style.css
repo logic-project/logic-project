@@ -263,6 +263,58 @@
     padding: 10px 5px;
   }
 }
+.game_over {
+  font-family: "Sawarabi Mincho", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+.game_over__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.game_over__score {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.game_over__image {
+  width: 500px;
+  margin-bottom: 1rem;
+}
+.game_over__button {
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #7d1c01;
+  color: #edfdff;
+  border: 2px solid #351006;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.game_over__button:hover {
+  background-color: #7d1c01;
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .game_over__title {
+    font-size: 1.5rem;
+  }
+  .game_over__score {
+    font-size: 1rem;
+  }
+  .game_over__image {
+    width: 300px;
+  }
+  .game_over__button {
+    font-size: 1rem;
+  }
+}
 * {
   margin: 0;
   padding: 0;

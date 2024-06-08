@@ -116,6 +116,22 @@ export class GamePlay {
     }
 
     gameOver() {
-        this.appElement.innerHTML = "<h1>Você perdeu</h1>";
+        const img = new Image();
+        img.classList.add('game_over__image');
+        img.src = '/assets/images/cenas/derrota/2.jpeg';
+        img.onload = () => {
+            const gameOverConteiner = document.createElement('div');
+            gameOverConteiner.classList.add('game_over');
+            gameOverConteiner.innerHTML = `<h1>Game Over</h1>`;
+            gameOverConteiner.innerHTML += `<p class="game_over__score">Pontuação: ${this.score}</p>`;    
+            gameOverConteiner.appendChild(img);
+            gameOverConteiner.innerHTML += `<a href="/" class="game_over__button">Reiniciar</a>`;
+            this.appElement.innerHTML = '';
+            this.appElement.appendChild(gameOverConteiner);
+        };
+        img.onerror = () => {
+            console.error('Failed to load game over image');
+        };
+
     }
 }

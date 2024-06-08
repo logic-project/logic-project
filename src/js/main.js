@@ -311,7 +311,7 @@ startBtn.addEventListener("click", () => {
     scoreEl.style.display = "block";
 
     const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
-    const game = new GamePlay(story, appEl, scoreEl, lifeEl, "normal");
+    const game = new GamePlay(story, appEl, scoreEl, lifeEl, "fast");
     game.gameLoop();
 });
 
