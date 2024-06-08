@@ -22,6 +22,10 @@ export class GamePlay {
                 await this.displayChallenge(scene.challenge);
             }
         }
+        if (this.life > 0) {
+            this.showVictoryScreen();
+        }
+
     }
 
     displaySubscene(scene, subscene) {
@@ -140,5 +144,24 @@ export class GamePlay {
             console.error('Failed to load game over image');
         };
 
+    }
+
+    showVictoryScreen() {
+        const img = new Image();
+        img.classList.add('victory__image');
+        img.src = `assets/images/cenas/vitoria/1.jpeg`;
+        img.onload = () => {
+            const victoryConteiner = document.createElement('div');
+            victoryConteiner.classList.add('victory');
+            victoryConteiner.innerHTML = `<h1>Vitória</h1>`;
+            victoryConteiner.innerHTML += `<p class="victory__score">Pontuação: ${this.score}</p>`;    
+            victoryConteiner.appendChild(img);
+            victoryConteiner.innerHTML += `<a href="" class="victory__button">Reiniciar</a>`;
+            this.appElement.innerHTML = '';
+            this.appElement.appendChild(victoryConteiner);
+        };
+        img.onerror = () => {
+            console.error('Failed to load victory image');
+        };
     }
 }

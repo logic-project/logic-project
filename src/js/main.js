@@ -314,3 +314,4 @@ startBtn.addEventListener("click", () => {
     const game = new GamePlay(story, appEl, scoreEl, lifeEl, "fast");
     game.gameLoop();
 });
+
