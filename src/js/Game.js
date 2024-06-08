@@ -1,7 +1,8 @@
 export class GamePlay {
-    constructor(story, appElement, scoreElement, lifeElement, mode = 'normal') {
+    constructor(story, appElement, scorePanelEl, scoreElement, lifeElement, mode = 'normal') {
         this.story = story;
         this.appElement = appElement;
+        this.scorePanelEl = scorePanelEl;
         this.scoreElement = scoreElement;
         this.lifeElement = lifeElement;
         this.mode = mode;
@@ -131,6 +132,7 @@ export class GamePlay {
         img.classList.add('game_over__image');
         img.src = `assets/images/cenas/derrota/2.jpeg`;
         img.onload = () => {
+            this.scorePanelEl.classList.add('hidden');
             const gameOverConteiner = document.createElement('div');
             gameOverConteiner.classList.add('game_over');
             gameOverConteiner.innerHTML = `<h1>Game Over</h1>`;
@@ -151,6 +153,7 @@ export class GamePlay {
         img.classList.add('victory__image');
         img.src = `assets/images/cenas/vitoria/1.jpeg`;
         img.onload = () => {
+            this.scorePanelEl.classList.add('hidden');
             const victoryConteiner = document.createElement('div');
             victoryConteiner.classList.add('victory');
             victoryConteiner.innerHTML = `<h1>Vitória</h1>`;

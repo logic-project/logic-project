@@ -7,6 +7,7 @@ import { Challenge } from "./Challenge";
 
 
 const appEl = document.getElementById("app");
+const scorePanelEl = document.getElementById("score_panel");
 const lifeEl = document.getElementById("life");
 const scoreEl = document.getElementById("score");
 const startBtn = document.getElementById("start");
@@ -311,7 +312,7 @@ startBtn.addEventListener("click", () => {
     scoreEl.style.display = "block";
 
     const story = new Story("A Aventura de Hiroshi no Reino das Sombras", chapters);
-    const game = new GamePlay(story, appEl, scoreEl, lifeEl, "normal");
+    const game = new GamePlay(story, appEl, scorePanelEl, scoreEl, lifeEl, "normal");
     game.gameLoop();
 });
 
