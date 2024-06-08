@@ -7,6 +7,7 @@ export class GamePlay {
         this.mode = mode;
         this.life = 3;
         this.score = 0;
+        this.baseUrl = window.location.hostname === "" ? '' : 'logic-project';
     }
 
     async gameLoop() {
@@ -42,7 +43,7 @@ export class GamePlay {
                 
                 this.typeWriter(subscene.text, textContainer);
     
-                const subsceneDuration = this.mode === 'fast' ? 1000 : subscene.duration * 1000;
+                const subsceneDuration = this.mode === 'fast' ? 500 : subscene.duration * 1000;
     
                 setTimeout(() => {
                     resolve();
@@ -104,6 +105,7 @@ export class GamePlay {
                     this.updateLifeDisplay();
                     if (this.life <= 0) {
                         this.gameOver();
+                        // resolve();
                     } else {
                         resolve();
                     }
@@ -123,14 +125,14 @@ export class GamePlay {
     gameOver() {
         const img = new Image();
         img.classList.add('game_over__image');
-        img.src = '/assets/images/cenas/derrota/2.jpeg';
+        img.src = `assets/images/cenas/derrota/2.jpeg`;
         img.onload = () => {
             const gameOverConteiner = document.createElement('div');
             gameOverConteiner.classList.add('game_over');
             gameOverConteiner.innerHTML = `<h1>Game Over</h1>`;
             gameOverConteiner.innerHTML += `<p class="game_over__score">Pontuação: ${this.score}</p>`;    
             gameOverConteiner.appendChild(img);
-            gameOverConteiner.innerHTML += `<a href="/" class="game_over__button">Reiniciar</a>`;
+            gameOverConteiner.innerHTML += `<a href="" class="game_over__button">Reiniciar</a>`;
             this.appElement.innerHTML = '';
             this.appElement.appendChild(gameOverConteiner);
         };
