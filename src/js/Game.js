@@ -23,7 +23,6 @@ export class GamePlay {
         }
     }
 
-
     displaySubscene(scene, subscene) {
         return new Promise(resolve => {
             const subsceneContainer = document.createElement('div');
@@ -51,13 +50,11 @@ export class GamePlay {
             };
             img.onerror = () => {
                 console.error('Failed to load image:', subscene.image);
-                resolve();  // Resolve the promise even if the image fails to load
+                resolve(); 
             };
         });
     }
     
-    
-
     displayChallenge(challenge) {
         return new Promise(resolve => {
             this.appElement.innerHTML = challenge.display();
@@ -75,11 +72,19 @@ export class GamePlay {
         type();
     }
 
-
     displayChallenge(challenge) {
         return new Promise(resolve => {
-            this.appElement.innerHTML = challenge.display();
-            this.addChallengeEventListeners(challenge, resolve);
+            const img = new Image();
+            img.classList.add('challenge__img');
+            img.src = challenge.image;
+            img.onload = () => {
+                this.appElement.innerHTML = challenge.display();
+                this.addChallengeEventListeners(challenge, resolve);
+            };
+            img.onerror = () => {
+                console.error('Failed to load image:', challenge.image);
+                resolve();
+            };
         });
     }
 
