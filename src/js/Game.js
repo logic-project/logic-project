@@ -17,7 +17,7 @@ export class GamePlay {
         for (const chapter of this.story.chapters) {
             for (const scene of chapter.scenes) {
                 for (const subscene of scene.subscenes) {
-                    await this.displaySubscene(scene, subscene);
+                    // await this.displaySubscene(scene, subscene);
                 }
 
                 await this.displayChallenge(scene.challenge);
@@ -100,21 +100,29 @@ export class GamePlay {
             const selectedOption = this.appElement.querySelector('input[name="alternative"]:checked');
             if (selectedOption) {
                 const answer = selectedOption.value;
+                const feedbackElement = document.createElement('div');
+                feedbackElement.classList.add('feedback');
+
                 if (answer == challenge.correctAnswer) {
                     challenge.callback(challenge.question, answer);
                     this.score++;
                     this.updateScoreDisplay();
-                    resolve();
+                    feedbackElement.innerHTML = '<p>Resposta correta!<br>Você ganhou 1 ponto</p>';
                 } else {
                     this.life--;
                     this.updateLifeDisplay();
+                    feedbackElement.innerHTML = '<p>Resposta errada!<br>Você perdeu 1 vida</p>';
                     if (this.life <= 0) {
                         this.gameOver();
-                        // resolve();
-                    } else {
-                        resolve();
+                        return;
                     }
                 }
+
+                this.appElement.appendChild(feedbackElement);
+                setTimeout(() => {
+                    this.appElement.removeChild(feedbackElement);
+                    resolve();
+                }, 2000); 
             }
         };
     }
