@@ -45,14 +45,15 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Encontrar a chave da porta do quarto de Hiroshi",
-                "assets/images/cenas/1/1_3.jpeg", 
+                "Antes de partir para sua jornada, Yukimura apresenta a Hiroshi um desafio de lógica para testar sua astúcia. Yukimura apresenta a seguinte expressão lógica para Hiroshi e pede que ele a parentize completamente, seguindo a ordem dos predicados:<br><br> H = P → Q ∧ Q → R v ¬P",
+                "assets/images/cenas/1/desafio1.webp", 
                 [
-                    "Hiroshi precisa encontrar a chave da porta do quarto para poder sair de casa e ir ao encontro de Yukimura.",
-                    "A chave está escondida em um dos vasos de plantas do jardim.",
-                    "Hiroshi deve procurar a chave em cada um dos vasos de plantas até encontrá-la."
+                    "H = (P → (Q ∧ (Q → (R ∨ ¬P))))",
+                    "H = ((P → (Q ∧ Q)) → (R ∨ ¬P))",
+                    "H = (((P → Q) ∧ (Q → R)) ∨ (¬P))",
+                    "H = ((P → Q) ∧ ((Q→R) ∨ ¬P))"
                 ],
-                0,
+                2,
                 challengeCallback
             )
         ),
@@ -75,14 +76,15 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Encontrar a saída da floresta",
-                "assets/images/cenas/2/2_6.jpeg",
+                "Hiroshi precisa atravessar uma ponte guardada por dois guerreiros das sombras. O guerreiro à esquerda, Ryota, sempre mente. O guerreiro à direita, Taro, sempre diz a verdade. Eles só podem fazer uma pergunta a um dos guerreiros para descobrir o caminho correto. <br><br>Qual pergunta Hiroshi deve fazer para descobrir o caminho correto?",
+                "assets/images/cenas/2/desafio2.webp",
                 [
-                    "Hiroshi, Yukimura, Hana e Kenji estão perdidos na floresta.",
-                    "Eles precisam encontrar a saída para continuar a jornada.",
-                    "A saída está escondida atrás de uma cachoeira."
+                    "Qual é o caminho seguro?",
+                    "Se eu perguntasse ao outro guerreiro qual é o caminho seguro, que caminho ele indicaria?",
+                    "O caminho à esquerda é seguro?",
+                    "O caminho à direita é seguro?"
                 ],
-                0,
+                1,
                 challengeCallback
             )
         ),
@@ -100,15 +102,15 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
-                "assets/images/cenas/3/3_4.jpeg", 
+                "Considere as seguintes proposições: <br><br>P: Hiroshi encontra um caminho estável. <br>Q: Hiroshi e seus amigos avançam no bosque. <br>R: Uma árvore se move e bloqueia o caminho. <br><br>Com base nas proposições fornecidas, analise a fórmula lógica: <br><br>H = (P → Q) ∧ (¬ P → R) <br><br>E determine qual das alternativas representa corretamente a fórmula fornecida.",
+                "assets/images/cenas/3/desafio3.webp", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Se Hiroshi e seus amigos avançam no bosque, então uma árvore se move e bloqueia o caminho, e se Hiroshi encontra um caminho estável, então a árvore não se move.",
+                    "Se Hiroshi e seus amigos avançam no bosque, então eles encontram um caminho estável, e se uma árvore bloqueia o caminho, então Hiroshi não encontrou um caminho estável.",
+                    "Se Hiroshi não encontra um caminho estável, então ele e seus amigos não avançam no bosque, mas uma árvore sempre se move independentemente.",
+                    "Se Hiroshi encontra um caminho estável, então ele e seus amigos avançam no bosque, mas se Hiroshi não encontra um caminho estável, então uma árvore se move e bloqueia o caminho."
                 ],
-                0,
+                3,
                 challengeCallback
             )
         ),
@@ -131,13 +133,12 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
-                "assets/images/cenas/4/4_5.jpeg", 
+                "Daichi propõe o seguinte desafio lógico para Hiroshi:<br><br>Se você é realmente o herói, então você conseguirá resolver este enigma. Se você resolver o enigma, então você e seus amigos poderão escapar. Se você não resolver o enigma, vocês se tornarão meus servos. <br><br>Com base nas proposições fornecidas: <br><br>P = É herói<br>Q = Resolver enigma<br>R = Amigos escapar<br>S = Tornarão meus servos <br><br>Determine qual das alternativas representa corretamente a fórmula lógica proposta por Daichi.",
+                "assets/images/cenas/4/4_3.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "((P→Q)∧(Q→R)∧(¬Q→S))",
+                    "((P→Q)∧(Q→R)∧(¬Q→¬S))",
+                    "((P→Q)∧(Q→S)∧(¬Q→R))"
                 ],
                 0,
                 challengeCallback
@@ -152,13 +153,12 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
-                "assets/images/cenas/5/5_2.jpeg", 
+                "Para ativar o torii mágico, Hiroshi precisa resolver a seguinte desafio:<br><br>Se ativarmos o torii mágico, então escaparemos do bosque. Se Daichi nos alcançar, então seremos capturados. Se não formos capturados, então escaparemos. Se não ativarmos o torii mágico, então seremos capturados ou Daichi nos alcançará. <br><br>Com base nas proposições fornecidas: <br><br>P: Ativamos o torii mágico. <br>Q: Escapamos do bosque. <br>R: Daichi nos alcança. <br>S: Seremos capturados. <br><br> Determine qual das alternativas representa corretamente a fórmula lógica proposta por Daichi.",
+                "assets/images/cenas/5/desafio5.webp", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "(P→Q)∧(R→S)∧(¬S→Q)∧(¬P→(S∨R)",
+                    "(P→Q)∧(R→¬S)∧(¬S→¬Q)∧(¬P→(S∨R))",
+                    "(P→Q)∧(R→¬S)∧(S→Q)∧(¬P→¬S)"
                 ],
                 0,
                 challengeCallback
@@ -188,10 +188,10 @@ const chapters = [
                 "Texto do desafio",
                 "assets/images/cenas/6/6_8.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Alternativa A",
+                    "Alternativa B",
+                    "Alternativa C",
+                    "Alternativa D"
                 ],
                 0,
                 challengeCallback
@@ -214,10 +214,10 @@ const chapters = [
                 "Texto do desafio",
                 "assets/images/cenas/7/7_3.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Alternativa A",
+                    "Alternativa B",
+                    "Alternativa C",
+                    "Alternativa D"
                 ],
                 0,
                 challengeCallback
@@ -240,10 +240,10 @@ const chapters = [
                 "Texto do desafio",
                 "assets/images/cenas/8/8_7.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Alternativa A",
+                    "Alternativa B",
+                    "Alternativa C",
+                    "Alternativa D"
                 ],
                 0,
                 challengeCallback
@@ -266,10 +266,10 @@ const chapters = [
                 "Texto do desafio",
                 "assets/images/cenas/9/9_6.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Alternativa A",
+                    "Alternativa B",
+                    "Alternativa C",
+                    "Alternativa D"
                 ],
                 0,
                 challengeCallback
@@ -292,10 +292,10 @@ const chapters = [
                 "Texto do desafio",
                 "assets/images/cenas/10/10_4.jpeg", 
                 [
-                    "A) alternativa",
-                    "B) alternativa",
-                    "C) alternativa",
-                    "correta C"
+                    "Alternativa A",
+                    "Alternativa B",
+                    "Alternativa C",
+                    "Alternativa D"
                 ],
                 0,
                 challengeCallback
