@@ -17,7 +17,7 @@ export class GamePlay {
         for (const chapter of this.story.chapters) {
             for (const scene of chapter.scenes) {
                 for (const subscene of scene.subscenes) {
-                    // await this.displaySubscene(scene, subscene);
+                    await this.displaySubscene(scene, subscene);
                 }
 
                 await this.displayChallenge(scene.challenge);
