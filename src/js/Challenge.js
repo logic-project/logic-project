@@ -1,9 +1,10 @@
 export class Challenge {
-    constructor(question, image, alternatives, correctAnswer, callback) {
+    constructor(question, image, alternatives, correctAnswer, hints, callback) {
         this.question = question;
         this.image = image;
         this.alternatives = alternatives;
         this.correctAnswer = correctAnswer;
+        this.hints = hints;
         this.callback = callback;
     }
     
@@ -11,8 +12,9 @@ export class Challenge {
         return `
             <div class="challenge">
                 <h2 class="challenge__title">Desafio</h2>
-                <p class="challenge__question">${this.question}</p>
+                <div class="challenge__question">${this.question}</div>
                 <img class="challenge__img" src="${this.image}" />
+                <p class="challenge__hints">Dica: ${this.hints}</p>
                 <ul class="challenge__list">
                     ${this.alternatives.map((alternative, index) => {
                         return `

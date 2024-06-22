@@ -45,6 +45,11 @@ body {
     text-transform: uppercase;
 }
 
+.item-list {
+    text-align: left;
+    margin: 30px;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;

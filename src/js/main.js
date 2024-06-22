@@ -54,6 +54,7 @@ const chapters = [
                     "H = ((P → Q) ∧ ((Q→R) ∨ ¬P))"
                 ],
                 2,
+                "Identifique os operadores lógicos e sua precedência.<br>Resolva as operações de dentro para fora.<br>Use a precedência dos operadores.",
                 challengeCallback
             )
         ),
@@ -85,6 +86,7 @@ const chapters = [
                     "O caminho à direita é seguro?"
                 ],
                 1,
+                "Pergunte a um guerreiro o que o outro diria. Depois, escolha o caminho oposto.",
                 challengeCallback
             )
         ),
@@ -111,6 +113,7 @@ const chapters = [
                     "Se Hiroshi encontra um caminho estável, então ele e seus amigos avançam no bosque, mas se Hiroshi não encontra um caminho estável, então uma árvore se move e bloqueia o caminho."
                 ],
                 3,
+                "Para resolver esta questão, verifique se cada parte da fórmula lógica H=(P→Q)∧(¬P→R) está corretamente representada nas alternativas.",
                 challengeCallback
             )
         ),
@@ -141,6 +144,7 @@ const chapters = [
                     "((P→Q)∧(Q→S)∧(¬Q→R))"
                 ],
                 0,
+                "Identifique cada proposição condicional na fala do personagem.<br>Traduza cada parte da sentença para uma expressão lógica.<br>Verifique se a expressão lógica selecionada corresponde exatamente às condições fornecidas na questão.",
                 challengeCallback
             )
         ),
@@ -161,6 +165,7 @@ const chapters = [
                     "(P→Q)∧(R→¬S)∧(S→Q)∧(¬P→¬S)"
                 ],
                 0,
+                "Identifique cada proposição condicional nas instruções dadas.<br>Certifique-se de que a expressão lógica selecionada representa corretamente cada uma das condições descritas.<br>Compare cada alternativa com as condições obtidas para determinar a correta.",
                 challengeCallback
             )
         ),
@@ -185,15 +190,23 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
+                `<p>Considere a cena em que Hiroshi precisa resolver um enigma de lógica de predicados para avançar no Vilarejo Sem Vida.</p> 
+                <p>"Se uma área está desbotada pelos capangas de Daichi e restauramos a vida dessa área, então avançaremos."</p>                  
+                <ul class="item-list">
+                   <li>p(x): "Área x está desbotada pelos capangas de Daichi"</li>
+                   <li>q(x): "Restauramos a vida da área x"</li>
+                   <li>r: "Podemos avançar"</li>
+                </ul>
+                <p>Qual das seguintes opções corretamente representa a proposição que descreve a necessidade de restaurar a vida das áreas para avançar?<p>`,
                 "assets/images/cenas/6/6_8.jpeg", 
                 [
-                    "Alternativa A",
-                    "Alternativa B",
-                    "Alternativa C",
-                    "Alternativa D"
+                    "∀x (p(x) → q(x) →r)",
+                    "∃x (p(x) → q(x)) →r",
+                    "∃x ((p(x) ∧ q(x)) →r)",
+                    "∃x (p(x) → q(x) →r)"
                 ],
-                0,
+                2,
+                "Preste atenção à estrutura da implicação lógica: identifique a relação entre as áreas desbotadas e a necessidade de restaurá-las para poder avançar. A formulação correta deve refletir que, para todas as áreas, a restauração é necessária para avançar.",
                 challengeCallback
             )
         ),
@@ -211,15 +224,23 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
+                `<p>Considere a cena em que Hiroshi precisa resolver um enigma de lógica de predicados para desbloquear passagens secretas no Reino das Sombras</p> 
+                <p>"Se os guerreiros das sombras fazem a dança ritualística e existe uma passagem trancada por Daichi, então essa passagem será desbloqueada."</p>                  
+                <ul class="item-list">
+                   <li>p: "Os guerreiros das sombras fazem a dança ritualística"</li>
+                   <li>q(x): "Passagem x está trancada por Daichi"</li>
+                   <li>r(x): "Passagem x está desbloqueada"</li>
+                </ul>
+                <p>Qual das seguintes opções corretamente representa a proposição que descreve a relação entre a dança dos guerreiros das sombras e as passagens secretas?<p>`,
                 "assets/images/cenas/7/7_3.jpeg", 
                 [
-                    "Alternativa A",
-                    "Alternativa B",
-                    "Alternativa C",
-                    "Alternativa D"
+                    "(p ∧ ((∃x) q(x)) → (∃x) r(x))",
+                    "∀x (p → q(x) → r(x))",
+                    "∃x (p →q (x) → r(x)) → (∀x) r(x))",
+                    "p → ∃x( q(x) → r(x))"
                 ],
                 0,
+                "Foque na relação de causa e efeito: a dança ritualística deve ser a causa que leva ao desbloqueio das passagens trancadas por Daichi. A formulação correta deve refletir que a dança resulta no desbloqueio de todas as passagens trancadas.2",
                 challengeCallback
             )
         ),
@@ -237,15 +258,24 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
-                "assets/images/cenas/8/8_7.jpeg", 
+                `<p>Considere a cena em que Hiroshi precisa resolver um enigma de lógica de predicados para encontrar chaves no Festival dos Pássaros de Papel</p> 
+                <p>"Para todo pássaro de papel que contém uma chave. Essa chave tranca ou não tranca uma área do Reino, então será possível abrir a área."</p>                  
+                <ul class="item-list">
+                   <li>p(x): "Pássaro de papel x contém uma chave"</li>
+                   <li>q(x)): "Chave x tranca uma área do Reino"</li>
+                   <li>¬q(x)): "Chave x não tranca uma área do Reino"</li>
+                   <li>r(x): "Área x será aberta"</li>
+                </ul>
+                <p>Qual das seguintes opções corretamente representa a proposição que descreve a relação entre os pássaros de papel e as áreas trancadas?<p>`,
+                "assets/images/cenas/7/8_4.jpeg", 
                 [
-                    "Alternativa A",
-                    "Alternativa B",
-                    "Alternativa C",
-                    "Alternativa D"
+                    "∃x (p(x) → (q(x) ∨ ¬q(x)) → r(x))",
+                    "∃x (p(x) → ∀y (q(y )→ r(y)))",
+                    "∀x (p(x) → ((q(x) ∨ ¬q(x)) → r(x))) ",
+                    "∀x (p(x) → (q(x) ∨ q(x)) → r(x))"
                 ],
-                0,
+                2,
+                "Observe a relação direta entre as chaves nos pássaros de papel e as áreas trancadas. A formulação correta deve refletir que, para todos os pássaros de papel que contém uma chave, essa chave é responsável por trancar ou destrancar uma área específica do Reino.",
                 challengeCallback
             )
         ),
@@ -263,15 +293,25 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
+                `<p>Considere a cena em que Hiroshi precisa resolver um enigma de lógica de predicados para salvar a Princesa Akemi. A seguir, está uma tentativa de formalizar a situação usando lógica de predicados. </p> 
+                <p>"Se Akemi está no castelo e o castelo está cercado por fogo, então precisamos ativar uma ponte invisível, que só aparece quando todas as áreas do reino estão restauradas."</p>                  
+                <ul class="item-list">
+                   <li>p(x): "Akemi está no castelo"</li>
+                   <li>q(x): "O castelo está cercado por fogo"</li>
+                   <li>r(x): "Precisamos atravessar o fogo"</li>
+                   <li>s(x): "Ativamos a ponte invisível"</li>
+                   <li>t(x): "Todas as áreas do reino estão restauradas"</li>
+                </ul>
+                <p>Qual das seguintes opções corretamente representa a proposição que descreve a necessidade de ativar uma ponte invisível para atravessar o fogo e salvar Akemi?<p>`,
                 "assets/images/cenas/9/9_6.jpeg", 
                 [
-                    "Alternativa A",
-                    "Alternativa B",
-                    "Alternativa C",
-                    "Alternativa D"
+                    "∀x(p(x)→(q(x)∧r(x)→s(x)))",
+                    "∀x(q(x)∧r(x)→(t(x)→s(x)))",
+                    "∃x(p(x)∧(q(x)∧r(x)→s(x)))",
+                    "∀x(p(x)∧q(x)∧r(x)→s(x))"
                 ],
-                0,
+                1,
+                "Foque na estrutura da implicação lógica: identifique as condições necessárias (o castelo cercado por fogo e a necessidade de atravessar o fogo) e a condição adicional (todas as áreas do reino restauradas) que leva à conclusão (ativação da ponte invisível). A opção correta deve refletir que a ativação da ponte depende da restauração do reino após satisfazer as condições iniciais.",
                 challengeCallback
             )
         ),
@@ -289,15 +329,23 @@ const chapters = [
                 ),
             ],
             new Challenge(
-                "Texto do desafio",
+                `<p>Considere a cena em que Hiroshi precisa resolver um último desafio de lógica de predicados durante a celebração para abrir o baú do tesouro. A seguir, está uma tentativa de formalizar a situação usando lógica de predicados.</p> 
+                <p>"Se a chave está na caixa vermelha ou na caixa azul, e a caixa vermelha está trancada, então a chave está na caixa azul."</p>                  
+                <ul class="item-list">
+                   <li>p(x)p(x)p(x): "A chave está na caixa vermelha"</li>
+                   <li>q(x)q(x)q(x): "A chave está na caixa azul"</li>
+                   <li>r(x)r(x)r(x): "A caixa vermelha está trancada"</li>
+                </ul>
+                <p>Qual das seguintes opções corretamente representa a proposição que descreve a necessidade de ativar uma ponte invisível para atravessar o fogo e salvar Akemi?<p>`,
                 "assets/images/cenas/10/10_4.jpeg", 
                 [
-                    "Alternativa A",
-                    "Alternativa B",
-                    "Alternativa C",
-                    "Alternativa D"
+                    "∀x(r(x) → (p(x) ∨ q(x) → q(x)))",
+                    "∃x(r(x) ∧ (p(x) ∨ q(x)) → q(x))",
+                    "∀x((p(x) ∨ q(x)) ∧ r(x) → q(x))",
+                    "∃x((p(x) ∨ q(x)) ∧ r(x) → ¬p(x)∧q(x))"
                 ],
-                0,
+                2,
+                "Preste atenção aos quantificadores: ∀x indica que a proposição é válida para todas as situações possíveis, enquanto ∃x indica que a proposição é válida para pelo menos uma situação específica. A formulação correta deve usar o quantificador universal para refletir que a dedução é válida em todos os casos onde as condições são satisfeitas.",
                 challengeCallback
             )
         ),

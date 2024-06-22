@@ -138,11 +138,20 @@
   padding: 15px 8px;
   color: #edfdff;
 }
+.challenge__question p {
+  margin-bottom: 10px;
+}
 .challenge__img {
   width: 100%;
   height: auto;
   margin: 5px 0;
   border-radius: 15px;
+}
+.challenge__hints {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
 }
 .challenge__list {
   list-style: none;
@@ -405,6 +414,11 @@ body {
   color: #fff;
   text-align: center;
   text-transform: uppercase;
+}
+
+.item-list {
+  text-align: left;
+  margin: 30px;
 }
 
 @media (max-width: 600px) {
