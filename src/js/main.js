@@ -249,12 +249,12 @@ const chapters = [
                 new SubScene(
                     "Ao passar por uma passagem secreta desbloqueada pelos guerreiros das sombras, Hiroshi e seus amigos chegam a uma cidade onde está acontecendo um festival de pássaros de papel (origami).", 
                     "assets/images/cenas/8/8_1.jpeg", 
-                    13
+                    12
                 ),
                 new SubScene(
                     "Eles descobrem que Daichi escondeu chaves nos pássaros de papel para trancar outras áreas do seu Reino.", 
                     "assets/images/cenas/8/8_7.jpeg", 
-                    10
+                    9
                 ),
             ],
             new Challenge(
@@ -284,7 +284,7 @@ const chapters = [
                 new SubScene(
                     "Com todas as áreas restauradas e chaves encontradas, Hiroshi e seus amigos chegam ao castelo de Daichi.", 
                     "assets/images/cenas/9/9_2.jpeg", 
-                    10
+                    9
                 ),
                 new SubScene(
                     "Akemi está presa em uma cela gigante dentro do castelo, cercado por fogo.", 
@@ -320,7 +320,7 @@ const chapters = [
                 new SubScene(
                     "Após salvar a Princesa Akemi e derrotar Daichi, Hiroshi e seus amigos retornam ao Reino da Luz para uma grande celebração.", 
                     "assets/images/cenas/10/10_1.jpeg", 
-                    10
+                    9
                 ),
                 new SubScene(
                     "Ayame organiza uma festa para os heróis comemorarem a vitória.", 
