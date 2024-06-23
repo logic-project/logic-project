@@ -14,7 +14,9 @@ export class Challenge {
                 <h2 class="challenge__title">Desafio</h2>
                 <div class="challenge__question">${this.question}</div>
                 <img class="challenge__img" src="${this.image}" />
-                <p class="challenge__hints">Dica: ${this.hints}</p>
+                <input type="checkbox" id="reveal-hints-checkbox" class="challenge__checkbox" />
+                <label for="reveal-hints-checkbox" class="challenge__reveal-hint">Dica</label>
+                <p class="challenge__hints">${this.hints}</p>
                 <ul class="challenge__list">
                     ${this.alternatives.map((alternative, index) => {
                         return `

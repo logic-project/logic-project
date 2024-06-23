@@ -17,7 +17,7 @@ export class GamePlay {
         for (const chapter of this.story.chapters) {
             for (const scene of chapter.scenes) {
                 for (const subscene of scene.subscenes) {
-                    // await this.displaySubscene(scene, subscene);
+                    await this.displaySubscene(scene, subscene);
                 }
 
                 await this.displayChallenge(scene.challenge);
@@ -95,6 +95,13 @@ export class GamePlay {
     }
 
     addChallengeEventListeners(challenge, resolve) {
+        // const revealHintButton = this.appElement.querySelector("#reveal-hints-btn");
+        // const hintElement = this.appElement.querySelector('#reveal-hints');
+        // revealHintButton.onclick = () => {
+        //     hintElement.style.display = 'block';
+        //     console.log('fasdsad');
+        // };
+
         const button = this.appElement.querySelector('.challenge button');
         button.onclick = () => {
             const selectedOption = this.appElement.querySelector('input[name="alternative"]:checked');

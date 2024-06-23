@@ -52,6 +52,34 @@
         justify-content: center;
         margin: 20px 0;
     }
+
+    &__checkbox {
+        display: none;
+    }
+    
+    &__hints {
+        display: none;
+    }
+    
+    &__checkbox:checked + &__reveal-hint + &__hints {
+        display: block;
+    }
+    
+    &__reveal-hint {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #1c2f66;
+        color: #edfdff;
+        border: 2px solid #5374d4;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    &__reveal-hint:hover {
+        background-color: #0c1a46;
+    }
     
     &__list {
         list-style: none;
